@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		7F13D87A255E8F7000BAFDFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13D879255E8F7000BAFDFB /* AppDelegate.swift */; };
 		7F13D87C255E8F7000BAFDFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13D87B255E8F7000BAFDFB /* SceneDelegate.swift */; };
-		7F13D87E255E8F7000BAFDFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13D87D255E8F7000BAFDFB /* ViewController.swift */; };
 		7F13D881255E8F7000BAFDFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F13D87F255E8F7000BAFDFB /* Main.storyboard */; };
 		7F13D883255E8F7500BAFDFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F13D882255E8F7500BAFDFB /* Assets.xcassets */; };
 		7F13D886255E8F7500BAFDFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F13D884255E8F7500BAFDFB /* LaunchScreen.storyboard */; };
+		7F9AFA9D2561C3920052B9D2 /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AFA9C2561C3920052B9D2 /* NetWorkManager.swift */; };
+		7FC37AA7255EAD1A002A0459 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AA6255EAD1A002A0459 /* MainCollectionViewController.swift */; };
+		7FC37AAC25602C92002A0459 /* RandomPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AAB25602C92002A0459 /* RandomPicViewController.swift */; };
+		7FC37AAF256042CA002A0459 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AAE256042CA002A0459 /* UserActionCell.swift */; };
+		7FC37AB425611307002A0459 /* BtcRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AB325611307002A0459 /* BtcRate.swift */; };
+		7FC37AB82561361B002A0459 /* CryptoPairCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AB72561361B002A0459 /* CryptoPairCell.swift */; };
+		7FC37ABB25613671002A0459 /* CryptoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37ABA25613671002A0459 /* CryptoCollectionViewController.swift */; };
+		7FC37AC625616383002A0459 /* CryptoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AC525616383002A0459 /* CryptoDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7F13D876255E8F7000BAFDFB /* HW2.10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW2.10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F13D879255E8F7000BAFDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F13D87B255E8F7000BAFDFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F13D87D255E8F7000BAFDFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7F13D880255E8F7000BAFDFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F13D882255E8F7500BAFDFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F13D885255E8F7500BAFDFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F13D887255E8F7500BAFDFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F9AFA9C2561C3920052B9D2 /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
+		7FC37AA6255EAD1A002A0459 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
+		7FC37AAB25602C92002A0459 /* RandomPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPicViewController.swift; sourceTree = "<group>"; };
+		7FC37AAE256042CA002A0459 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
+		7FC37AB325611307002A0459 /* BtcRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtcRate.swift; sourceTree = "<group>"; };
+		7FC37AB72561361B002A0459 /* CryptoPairCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPairCell.swift; sourceTree = "<group>"; };
+		7FC37ABA25613671002A0459 /* CryptoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCollectionViewController.swift; sourceTree = "<group>"; };
+		7FC37AC525616383002A0459 /* CryptoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,62 @@
 		7F13D878255E8F7000BAFDFB /* HW2.10 */ = {
 			isa = PBXGroup;
 			children = (
-				7F13D879255E8F7000BAFDFB /* AppDelegate.swift */,
-				7F13D87B255E8F7000BAFDFB /* SceneDelegate.swift */,
-				7F13D87D255E8F7000BAFDFB /* ViewController.swift */,
-				7F13D87F255E8F7000BAFDFB /* Main.storyboard */,
-				7F13D882255E8F7500BAFDFB /* Assets.xcassets */,
-				7F13D884255E8F7500BAFDFB /* LaunchScreen.storyboard */,
-				7F13D887255E8F7500BAFDFB /* Info.plist */,
+				7F9AFA972561C1510052B9D2 /* Network */,
+				7FC37AB2256112A2002A0459 /* Model */,
+				7FC37A98255EA756002A0459 /* ViewControllers */,
+				7FC37A9B255EA765002A0459 /* StoryBoards */,
+				7FC37A9C255EA777002A0459 /* System */,
 			);
 			path = HW2.10;
+			sourceTree = "<group>";
+		};
+		7F9AFA972561C1510052B9D2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7F9AFA9C2561C3920052B9D2 /* NetWorkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7FC37A98255EA756002A0459 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FC37AA6255EAD1A002A0459 /* MainCollectionViewController.swift */,
+				7FC37AAE256042CA002A0459 /* UserActionCell.swift */,
+				7FC37AAB25602C92002A0459 /* RandomPicViewController.swift */,
+				7FC37ABA25613671002A0459 /* CryptoCollectionViewController.swift */,
+				7FC37AC525616383002A0459 /* CryptoDetailsViewController.swift */,
+				7FC37AB72561361B002A0459 /* CryptoPairCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7FC37A9B255EA765002A0459 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				7F13D87F255E8F7000BAFDFB /* Main.storyboard */,
+				7F13D884255E8F7500BAFDFB /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		7FC37A9C255EA777002A0459 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				7F13D879255E8F7000BAFDFB /* AppDelegate.swift */,
+				7F13D87B255E8F7000BAFDFB /* SceneDelegate.swift */,
+				7F13D882255E8F7500BAFDFB /* Assets.xcassets */,
+				7F13D887255E8F7500BAFDFB /* Info.plist */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		7FC37AB2256112A2002A0459 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7FC37AB325611307002A0459 /* BtcRate.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +198,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F13D87E255E8F7000BAFDFB /* ViewController.swift in Sources */,
+				7F9AFA9D2561C3920052B9D2 /* NetWorkManager.swift in Sources */,
+				7FC37AAC25602C92002A0459 /* RandomPicViewController.swift in Sources */,
+				7FC37AB82561361B002A0459 /* CryptoPairCell.swift in Sources */,
+				7FC37AAF256042CA002A0459 /* UserActionCell.swift in Sources */,
+				7FC37ABB25613671002A0459 /* CryptoCollectionViewController.swift in Sources */,
 				7F13D87A255E8F7000BAFDFB /* AppDelegate.swift in Sources */,
 				7F13D87C255E8F7000BAFDFB /* SceneDelegate.swift in Sources */,
+				7FC37AC625616383002A0459 /* CryptoDetailsViewController.swift in Sources */,
+				7FC37AA7255EAD1A002A0459 /* MainCollectionViewController.swift in Sources */,
+				7FC37AB425611307002A0459 /* BtcRate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WM9XM3NC73;
-				INFOPLIST_FILE = HW2.10/Info.plist;
+				INFOPLIST_FILE = HW2.10/System/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Tokarev-Dmitry.HW2-10";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WM9XM3NC73;
-				INFOPLIST_FILE = HW2.10/Info.plist;
+				INFOPLIST_FILE = HW2.10/System/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +383,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Tokarev-Dmitry.HW2-10";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

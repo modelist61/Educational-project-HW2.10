@@ -16,6 +16,24 @@ struct GetPair: Decodable {
     let quote: String?
 }
 
+struct GetPairNew {
+    let name: String
+    let base: String
+    let quote: String
+    
+    init?(dict: [String: AnyObject]) {
+        guard
+        let name = dict["name"] as? String,
+        let base = dict["base"] as? String,
+        let quote = dict["quote"] as? String
+        else { return nil }
+        
+        self.name = name
+        self.base = base
+        self.quote = quote
+    }
+}
+
 
 
 

@@ -8,7 +8,21 @@
 import Foundation
 
 class NetworkManager {
+    private init() {}
+    static let shared = NetworkManager()
     
-    init() {}
-    private let shared = NetworkManager()
+    public func getData(url: URL, completion: @escaping (Any) -> ()) {
+        let session = URLSession.shared
+        session.dataTask(with: url ) { (data, _, error) in
+            guard let data = data else { return }
+            do {
+                let json  = try JSONSerialization.jsonObject(with: data, options: [])
+                DispatchQueue.main.async {
+                    completion(json)
+                }
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
 }

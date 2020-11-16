@@ -25,6 +25,7 @@ class MainCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         userActions.count
+//        pairNew.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -73,7 +74,7 @@ extension MainCollectionViewController {
                 let cryptoPairs = try JSONDecoder().decode([GetPair].self, from: data)
                 DispatchQueue.main.async {
                     for btc in cryptoPairs {
-                        if btc.base == "BTC" {
+                        if btc.base == "BTC"{
                             self.btcPair.append(btc)
                         }
                     }

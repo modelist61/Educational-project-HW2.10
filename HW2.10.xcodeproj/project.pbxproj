@@ -12,6 +12,9 @@
 		7F13D881255E8F7000BAFDFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F13D87F255E8F7000BAFDFB /* Main.storyboard */; };
 		7F13D883255E8F7500BAFDFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F13D882255E8F7500BAFDFB /* Assets.xcassets */; };
 		7F13D886255E8F7500BAFDFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F13D884255E8F7500BAFDFB /* LaunchScreen.storyboard */; };
+		7F35C4202562477400877493 /* TraidPairsNetworManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35C41F2562477400877493 /* TraidPairsNetworManager.swift */; };
+		7F35C4232562486F00877493 /* GetTraidPairResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35C4222562486F00877493 /* GetTraidPairResponse.swift */; };
+		7F35C42825624AD500877493 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35C42725624AD500877493 /* NetworkError.swift */; };
 		7F9AFA9D2561C3920052B9D2 /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AFA9C2561C3920052B9D2 /* NetWorkManager.swift */; };
 		7FC37AA7255EAD1A002A0459 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AA6255EAD1A002A0459 /* MainCollectionViewController.swift */; };
 		7FC37AAC25602C92002A0459 /* RandomPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC37AAB25602C92002A0459 /* RandomPicViewController.swift */; };
@@ -30,6 +33,9 @@
 		7F13D882255E8F7500BAFDFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F13D885255E8F7500BAFDFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F13D887255E8F7500BAFDFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F35C41F2562477400877493 /* TraidPairsNetworManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraidPairsNetworManager.swift; sourceTree = "<group>"; };
+		7F35C4222562486F00877493 /* GetTraidPairResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTraidPairResponse.swift; sourceTree = "<group>"; };
+		7F35C42725624AD500877493 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7F9AFA9C2561C3920052B9D2 /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
 		7FC37AA6255EAD1A002A0459 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		7FC37AAB25602C92002A0459 /* RandomPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPicViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +85,20 @@
 			path = HW2.10;
 			sourceTree = "<group>";
 		};
+		7F35C42625624A1200877493 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				7F35C4222562486F00877493 /* GetTraidPairResponse.swift */,
+			);
+			name = Responses;
+			sourceTree = "<group>";
+		};
 		7F9AFA972561C1510052B9D2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				7F9AFA9C2561C3920052B9D2 /* NetWorkManager.swift */,
+				7F35C41F2562477400877493 /* TraidPairsNetworManager.swift */,
+				7F35C42725624AD500877493 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -124,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				7FC37AB325611307002A0459 /* BtcRate.swift */,
+				7F35C42625624A1200877493 /* Responses */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -199,13 +216,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F9AFA9D2561C3920052B9D2 /* NetWorkManager.swift in Sources */,
+				7F35C4202562477400877493 /* TraidPairsNetworManager.swift in Sources */,
 				7FC37AAC25602C92002A0459 /* RandomPicViewController.swift in Sources */,
 				7FC37AB82561361B002A0459 /* CryptoPairCell.swift in Sources */,
 				7FC37AAF256042CA002A0459 /* UserActionCell.swift in Sources */,
 				7FC37ABB25613671002A0459 /* CryptoCollectionViewController.swift in Sources */,
 				7F13D87A255E8F7000BAFDFB /* AppDelegate.swift in Sources */,
 				7F13D87C255E8F7000BAFDFB /* SceneDelegate.swift in Sources */,
+				7F35C4232562486F00877493 /* GetTraidPairResponse.swift in Sources */,
 				7FC37AC625616383002A0459 /* CryptoDetailsViewController.swift in Sources */,
+				7F35C42825624AD500877493 /* NetworkError.swift in Sources */,
 				7FC37AA7255EAD1A002A0459 /* MainCollectionViewController.swift in Sources */,
 				7FC37AB425611307002A0459 /* BtcRate.swift in Sources */,
 			);

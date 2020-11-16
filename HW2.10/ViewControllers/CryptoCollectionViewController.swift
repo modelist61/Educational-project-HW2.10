@@ -11,7 +11,17 @@ class CryptoCollectionViewController: UICollectionViewController {
     
     var cryptoPair: [GetPair] = []
     private var tradePair = ""
-    private var selectPrice = BtcRate.init(price: 0.0, pair: ["String" : "String"])
+    private var selectPrice = BtcRate.init(price: 0.0, pair: ["" : ""])
+    
+//    //собраный массив из NetworkManager
+//    var pairNew: [GetPairNew] = []
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        TraidPairsNetworkManager.getTraidPair { (response) in
+//            self.pairNew = response.traidPairs
+//        }
+//        print("!pairNew! \(pairNew)")
+//    }
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

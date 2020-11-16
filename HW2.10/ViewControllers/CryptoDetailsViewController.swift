@@ -12,6 +12,7 @@ class CryptoDetailsViewController: UIViewController {
     @IBOutlet var pairName: UILabel!
     @IBOutlet var pairPrice: UILabel!
     @IBOutlet var descriptionPrice: UILabel!
+    
     var price = BtcRate.init(price: 0.0, pair: ["" : ""])
     
     override func viewDidLoad() {

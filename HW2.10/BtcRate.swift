@@ -5,34 +5,47 @@
 //  Created by Dmitry Tokarev on 15.11.2020.
 //
 
-struct BtcRate: Decodable {
-    let price: Double
-    let pair: [String: String]
-}
-
 struct GetPair: Decodable {
     let name: String?
     let base: String?
     let quote: String?
-}
-
-struct GetPairNew {
-    let name: String
-    let base: String
-    let quote: String
     
-    init?(dict: [String: AnyObject]) {
-        guard
-        let name = dict["name"] as? String,
-        let base = dict["base"] as? String,
-        let quote = dict["quote"] as? String
-        else { return nil }
-        
-        self.name = name
-        self.base = base
-        self.quote = quote
+    init(pairData: [String: Any]) {
+        name = pairData["name"] as? String
+        base = pairData["base"] as? String
+        quote = pairData["quote"] as? String
+    }
+    
+//    static func getCryptoPair(from value: Any) -> [GetPair]? {
+//        guard let pairsData = value as? [[String: Any]] else { return nil }
+//        return pairsData.compactMap { GetPair(pairData: $0) }
+//    }
+    
+    static func getBtcPair(from value: Any) -> [GetPair]? {
+        guard let pairsData = value as? [[String: Any]] else { return nil }
+        var btcPair: [GetPair] = []
+        for btc in pairsData {
+            let pair = GetPair(pairData: btc)
+            if pair.base == "BTC" {
+                btcPair.append(pair)
+            }
+        }
+        return btcPair
     }
 }
+
+struct BtcRate2: Decodable {
+    let price: Double?
+    var pair: Pair
+}
+
+struct Pair: Decodable {
+    let base: String?
+    let quote: String?
+}
+
+
+
 
 
 

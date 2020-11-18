@@ -6,22 +6,27 @@
 //
 
 import UIKit
+import Alamofire
+import Spring
+
 
 class CryptoCollectionViewController: UICollectionViewController {
     
     var cryptoPair: [GetPair] = []
     private var tradePair = ""
-    private var selectPrice = BtcRate.init(price: 0.0, pair: ["" : ""])
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-//    //собраный массив из NetworkManager
-//    var pairNew: [GetPairNew] = []
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        TraidPairsNetworkManager.getTraidPair { (response) in
-//            self.pairNew = response.traidPairs
-//        }
-//        print("!pairNew! \(pairNew)")
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        NetworkManager.shared.fetchData(from: .getPair) { cryptoPairs in
+            self.cryptoPair = cryptoPairs
+            self.collectionView.reloadData()
+            self.activityIndicator.stopAnimating()
+        }
+    }
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -31,46 +36,30 @@ class CryptoCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cryptoCell", for: indexPath) as! CryptoPairCell
         let naimPair = cryptoPair[indexPath.item]
-        cell.cryptoPairLable.text = "\(naimPair.base ?? "") / \(naimPair.quote ?? "")"
-        
+        cell.cryptoPairLable.animation = "zoomIn"
+        cell.cryptoPairLable.delay = 0.2
+        cell.cryptoPairLable.duration = 1.0
+        cell.cryptoPairLable.text = """
+                                    \(naimPair.base ?? "")
+                                    \(naimPair.quote ?? "")
+                                    """
+        cell.cryptoPairLable.animate()
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userAction = cryptoPair[indexPath.item]
         tradePair = userAction.name ?? ""
-        getBtcRate()
+        performSegue(withIdentifier: "cryptoDetails", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let price = segue.destination as? CryptoDetailsViewController
-        price?.price = selectPrice
+        price?.tradePair = tradePair
     }
 }
 
-extension CryptoCollectionViewController {
-    private func getBtcRate() {
-        guard let url = URL(string: "https://api.n.exchange/en/api/v1/get_price/\(tradePair)") else {return}
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            guard let data = data else { return }
-            do {
-                let btcRate = try JSONDecoder().decode(BtcRate.self, from: data)
-                DispatchQueue.main.async {
-                    self.selectPrice = btcRate
-                    self.performSegue(withIdentifier: "ccryptoDetails", sender: nil )
-                }
-            } catch let error {
-                self.errorAlert()
-                print("ERROR!!! \(error)")
-            }
-        }.resume()
-    }
-}
-
+// MARK: Allert
 extension CryptoCollectionViewController {
     private func errorAlert() {
         let alert = UIAlertController(title: "Faild! :(",

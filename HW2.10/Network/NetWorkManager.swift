@@ -6,23 +6,49 @@
 //
 
 import Foundation
+import Alamofire
+
+enum URLS: String {
+    case getPair = "https://api.n.exchange/en/api/v1/pair/"
+    case pairRate = "https://api.n.exchange/en/api/v1/get_price/BTCETH"
+}
 
 class NetworkManager {
-    private init() {}
     static let shared = NetworkManager()
+    private init() {}
     
-    public func getData(url: URL, completion: @escaping (Any) -> ()) {
-        let session = URLSession.shared
-        session.dataTask(with: url ) { (data, _, error) in
-            guard let data = data else { return }
-            do {
-                let json  = try JSONSerialization.jsonObject(with: data, options: [])
-                DispatchQueue.main.async {
-                    completion(json)
+    func fetchData(from url: URLS, with complition: @escaping ([GetPair]) -> Void) {
+        AF.request(url.rawValue)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let cryptoPair = GetPair.getBtcPair(from: value) ?? []
+                    DispatchQueue.main.async {
+                        complition(cryptoPair)
+                    }
+                case .failure(let error):
+                    print("ERROR GetPair", error.localizedDescription)
                 }
-            } catch {
-                print(error)
-            }
-        }.resume()
+            }.resume()
+    }
+    
+    func fetchDataRate(from url: URLS, with complition: @escaping (BtcRate2, Pair) -> Void) {
+        AF.request(url.rawValue)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let btcRate = value
+                    
+                    DispatchQueue.main.async {
+                       
+                    }
+                case .failure(let error):
+                    print("BtcRate", error.localizedDescription)
+                }
+            }.resume()
     }
 }
+
+    

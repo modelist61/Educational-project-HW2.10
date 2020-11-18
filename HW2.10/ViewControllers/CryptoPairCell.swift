@@ -6,8 +6,8 @@
 //
 
 import UIKit
+import Spring
 
 class CryptoPairCell: UICollectionViewCell {
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var cryptoPairLable: UILabel!
+    @IBOutlet var cryptoPairLable: SpringLabel!
 }

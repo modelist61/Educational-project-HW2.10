@@ -33,22 +33,22 @@ class NetworkManager {
             }.resume()
     }
     
-    func fetchDataRate(from url: URLS, with complition: @escaping (BtcRate2, Pair) -> Void) {
-        AF.request(url.rawValue)
-            .validate()
-            .responseJSON { dataResponse in
-                switch dataResponse.result {
-                case .success(let value):
-                    let btcRate = value
-                    
-                    DispatchQueue.main.async {
-                       
-                    }
-                case .failure(let error):
-                    print("BtcRate", error.localizedDescription)
-                }
-            }.resume()
-    }
+//    func fetchDataRate(from url: URL, with complition: @escaping (BtcRate) -> Void) {
+//        AF.request(url)
+//            .validate()
+//            .responseJSON { dataResponse in
+//                switch dataResponse.result {
+//                case .success(let value):
+//                    let price = BtcRate.init(rate: value as! [String : Any])
+//                    let pair = Pair.init(pair: value as! [String : Any])
+//                    DispatchQueue.main.async {
+//                        complition(price)
+//                    }
+//                case .failure(let error):
+//                    print("BtcRate", error.localizedDescription)
+//                }
+//            }.resume()
+//    }
 }
 
     

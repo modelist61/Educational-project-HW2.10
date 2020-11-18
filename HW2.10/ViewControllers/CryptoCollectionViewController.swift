@@ -9,9 +9,7 @@ import UIKit
 import Alamofire
 import Spring
 
-
 class CryptoCollectionViewController: UICollectionViewController {
-    
     var cryptoPair: [GetPair] = []
     private var tradePair = ""
     @IBOutlet var activityIndicator: UIActivityIndicatorView!

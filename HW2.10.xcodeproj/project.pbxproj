@@ -81,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				7F9AFA972561C1510052B9D2 /* Network */,
-				7FC37AB2256112A2002A0459 /* Model */,
 				7FC37A98255EA756002A0459 /* ViewControllers */,
 				7FC37A9B255EA765002A0459 /* StoryBoards */,
 				7FC37A9C255EA777002A0459 /* System */,
@@ -93,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				7F9AFA9C2561C3920052B9D2 /* NetWorkManager.swift */,
+				7FC37AB2256112A2002A0459 /* Model */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -133,6 +133,7 @@
 				7FC37AB325611307002A0459 /* BtcRate.swift */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A00E121BF27A134BA9054045 /* Frameworks */ = {
@@ -414,6 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WM9XM3NC73;
 				INFOPLIST_FILE = HW2.10/System/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,6 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WM9XM3NC73;
 				INFOPLIST_FILE = HW2.10/System/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

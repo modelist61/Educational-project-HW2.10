@@ -16,11 +16,6 @@ struct GetPair: Decodable {
         quote = pairData["quote"] as? String
     }
     
-//    static func getCryptoPair(from value: Any) -> [GetPair]? {
-//        guard let pairsData = value as? [[String: Any]] else { return nil }
-//        return pairsData.compactMap { GetPair(pairData: $0) }
-//    }
-    
     static func getBtcPair(from value: Any) -> [GetPair]? {
         guard let pairsData = value as? [[String: Any]] else { return nil }
         var btcPair: [GetPair] = []
@@ -34,16 +29,24 @@ struct GetPair: Decodable {
     }
 }
 
-struct BtcRate2: Decodable {
-    let price: Double?
-    var pair: Pair
+struct BtcRate: Decodable {
+    let price: Double
+    var pair: Pair?
+    
+    init(rate: [String: Any]) {
+        price = (rate["price"] as? Double)!
+        pair = rate["pair"] as? Pair
+    }
 }
-
 struct Pair: Decodable {
     let base: String?
     let quote: String?
+    
+    init(pair: [String: Any]) {
+        base = pair["base"] as? String
+        quote = pair["quote"] as? String
+    }
 }
-
 
 
 

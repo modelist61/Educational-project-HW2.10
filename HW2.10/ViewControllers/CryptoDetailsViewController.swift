@@ -16,28 +16,27 @@ class CryptoDetailsViewController: UIViewController {
     @IBOutlet var descriptionPrice: SpringLabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var price: BtcRate2!
+    var price: BtcRate!
     var pair: Pair!
     
     var tradePair = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getBtcRate()
     }
     
     private func printLable() {
-        pairPrice.text = String(format: "%.3f", price.price ?? 0)
-        pairName.text = "\(pair.base ?? "") - \(pair.quote ?? "")"
-        descriptionPrice.text = "\(pair.base ?? "") for 1 \(pair.quote ?? "")"
-        pairName.animation = "slideRight"
+        pairPrice.text = String(format: "%.3f", price.price)
+        pairName.text = "\(pair.base ?? "fail") - \(pair.quote ?? "fail")"
+        descriptionPrice.text = "\(pair.quote ?? "") for 1 \(pair.base ?? "")"
+        pairName.animation = "slideDown"
         pairName.animate()
     }
     
     @IBAction func dismisButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
 }
 
 // MARK: GetBtcRate
@@ -51,7 +50,7 @@ extension CryptoDetailsViewController {
             }
             guard let data = data else { return }
             do {
-                let btcRate = try JSONDecoder().decode(BtcRate2.self, from: data)
+                let btcRate = try JSONDecoder().decode(BtcRate.self, from: data)
                 self.price = btcRate
                 self.pair = btcRate.pair
                 print(btcRate)
@@ -70,28 +69,4 @@ extension CryptoDetailsViewController {
         }.resume()
     }
 }
-
-//extension CryptoDetailsViewController {
-//    private func getBtcRate2() {
-//        AF.request("https://api.n.exchange/en/api/v1/get_price/\(tradePair)")
-//            .validate()
-//            .responseJSON { dataResponse in
-//                switch dataResponse.result {
-//                case .success(let value):
-////                    self.price2 =
-//
-//                    DispatchQueue.main.async {
-//                        self.printLable()
-//                        self.activityIndicator.stopAnimating()
-//
-//                    }
-//                case .failure(let error):
-//                    print("ERROR: \(error)")
-//                    self.pairName.text = "No result =("
-//                    self.pairPrice.text = ""
-//                    self.activityIndicator.stopAnimating()
-//                }
-//            }.resume()
-//    }
-//}
 

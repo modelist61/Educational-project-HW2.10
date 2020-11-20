@@ -35,7 +35,10 @@ struct BtcRate: Decodable {
     
     init(rate: [String: Any]) {
         price = (rate["price"] as? Double)!
-        pair = rate["pair"] as? Pair
+//        pair = rate["pair"] as? Pair
+        
+        let pairDat = rate["pair"] as? [String: Any] ?? [:]
+        pair = Pair(pair: pairDat)
     }
 }
 struct Pair: Decodable {

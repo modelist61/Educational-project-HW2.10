@@ -16,20 +16,27 @@ class CryptoDetailsViewController: UIViewController {
     @IBOutlet var descriptionPrice: SpringLabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var price: BtcRate!
-    var pair: Pair!
+    var price: BtcRate?
+    var pair: Pair?
     
     var tradePair = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getBtcRate()
+        guard let url = URL(string: "https://api.n.exchange/en/api/v1/get_price/\(tradePair)") else { return }
+        NetworkManager.shared.fetchDataRate(from: url) { btcRate in
+            self.price = btcRate
+            self.pair = btcRate.pair
+            self.viewWillLayoutSubviews()
+            self.activityIndicator.stopAnimating()
+            self.printLable()
+        }
     }
     
     private func printLable() {
-        pairPrice.text = String(format: "%.3f", price.price)
-        pairName.text = "\(pair.base ?? "fail") - \(pair.quote ?? "fail")"
-        descriptionPrice.text = "\(pair.quote ?? "") for 1 \(pair.base ?? "")"
+        pairPrice.text = String(format: "%.3f", price?.price ?? 0.0)
+        pairName.text = "\(pair?.base ?? "fail") - \(pair?.quote ?? "fail")"
+        descriptionPrice.text = "\(pair?.quote ?? "") for 1 \(pair?.base ?? "")"
         pairName.animation = "slideDown"
         pairName.animate()
     }
@@ -39,34 +46,34 @@ class CryptoDetailsViewController: UIViewController {
     }
 }
 
-// MARK: GetBtcRate
-extension CryptoDetailsViewController {
-    private func getBtcRate() {
-        guard let url = URL(string: "https://api.n.exchange/en/api/v1/get_price/\(tradePair)") else {return}
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            guard let data = data else { return }
-            do {
-                let btcRate = try JSONDecoder().decode(BtcRate.self, from: data)
-                self.price = btcRate
-                self.pair = btcRate.pair
-                print(btcRate)
-                DispatchQueue.main.async {
-                    self.printLable()
-                    self.activityIndicator.stopAnimating()
-                }
-            } catch let error {
-                DispatchQueue.main.async {
-                    self.pairName.text = "No result =("
-                    self.pairPrice.text = ""
-                    self.activityIndicator.stopAnimating()
-                }
-                print("ERROR!!! \(error)")
-            }
-        }.resume()
-    }
-}
+//// MARK: GetBtcRate
+//extension CryptoDetailsViewController {
+//    private func getBtcRate() {
+//        guard let url = URL(string: "https://api.n.exchange/en/api/v1/get_price/\(tradePair)") else {return}
+//        URLSession.shared.dataTask(with: url) { (data, _, error) in
+//            if let error = error {
+//                print(error)
+//                return
+//            }
+//            guard let data = data else { return }
+//            do {
+//                let btcRate = try JSONDecoder().decode(BtcRate.self, from: data)
+//                self.price = btcRate
+//                self.pair = btcRate.pair
+//                print(btcRate)
+//                DispatchQueue.main.async {
+//                    self.printLable()
+//                    self.activityIndicator.stopAnimating()
+//                }
+//            } catch let error {
+//                DispatchQueue.main.async {
+//                    self.pairName.text = "No result =("
+//                    self.pairPrice.text = ""
+//                    self.activityIndicator.stopAnimating()
+//                }
+//                print("ERROR!!! \(error)")
+//            }
+//        }.resume()
+//    }
+//}
 

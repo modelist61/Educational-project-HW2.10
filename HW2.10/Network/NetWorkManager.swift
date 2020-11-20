@@ -30,25 +30,24 @@ class NetworkManager {
                 case .failure(let error):
                     print("ERROR GetPair", error.localizedDescription)
                 }
-            }.resume()
+            }
     }
     
-//    func fetchDataRate(from url: URL, with complition: @escaping (BtcRate) -> Void) {
-//        AF.request(url)
-//            .validate()
-//            .responseJSON { dataResponse in
-//                switch dataResponse.result {
-//                case .success(let value):
-//                    let price = BtcRate.init(rate: value as! [String : Any])
-//                    let pair = Pair.init(pair: value as! [String : Any])
-//                    DispatchQueue.main.async {
-//                        complition(price)
-//                    }
-//                case .failure(let error):
-//                    print("BtcRate", error.localizedDescription)
-//                }
-//            }.resume()
-//    }
+    func fetchDataRate(from url: URL, with complition: @escaping (BtcRate) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let price = BtcRate.init(rate: value as! [String : Any])
+                    DispatchQueue.main.async {
+                        complition(price)
+                    }
+                case .failure(let error):
+                    print("BtcRate", error.localizedDescription)
+                }
+            }
+    }
 }
 
     
